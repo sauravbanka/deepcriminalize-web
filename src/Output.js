@@ -21,10 +21,7 @@ class Output extends React.Component {
       <Row style={{ paddingTop: 20, }}>
         <Col md="2" xl="2" lg="2" />
         <Col md="9" xl="9" lg="9">
-        <p>Case Number: {this.props.case}</p>
-        <p>Witness Name: {this.props.witname}</p>
-        <p>Gender: {this.props.gender}</p>
-        <p>Ethnicity: {this.props.ethnicity}</p>
+        <p>{JSON.stringify(this.props.json)}</p>
 
         <Table striped bordered hover>
           <thead>

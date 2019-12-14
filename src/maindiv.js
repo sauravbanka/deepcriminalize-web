@@ -6,7 +6,8 @@ export class MainDiv extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display:false
+      display:false,
+      md: ""
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -33,7 +34,13 @@ export class MainDiv extends React.Component {
   displayOutput() {
     console.log(this.state)
     if (this.state.display === true) {
-      return (<Output case={this.state.case_number} witname={this.state.witness_name} gender={this.state.gender} ethnicity={this.state.ethnicity}/>);
+      let final_json = {
+        uid: this.state.witness_name+this.state.case_number,
+        e: this.state.e,
+        g: this.state.g,
+        md: this.state.md
+      }
+      return (<Output json={final_json}/>);
     }
       else {
         return (

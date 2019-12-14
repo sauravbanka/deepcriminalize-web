@@ -32,14 +32,14 @@ export class InputForm extends React.Component {
         message: "Please enter a valid input."
       },
       {
-        field: "ethnicity",
+        field: "e",
         method: "equals",
         args: ["Choose"],
         validWhen: false,
         message: "Please enter select an option."
       },
       {
-        field: "gender",
+        field: "g",
         method: "equals",
         args: ["Choose"],
         validWhen: false,
@@ -50,8 +50,9 @@ export class InputForm extends React.Component {
     this.state = {
       witness_name:"",
       case_number:"",
-      ethnicity:"Choose",
-      gender:"Choose",
+      e:"Choose",
+      g:"Choose",
+      md: "",
       validation: this.validator.valid(),
       display: false
     };
@@ -133,31 +134,30 @@ export class InputForm extends React.Component {
 
               </Form.Group>
 
-              <Form.Group as={Row} align="center" controlId="ethnicity">
+              <Form.Group as={Row} align="center" controlId="e">
                 <Form.Label>Ethnicity</Form.Label>
-                  <Form.Control as="select" name="ethnicity" onChange={this.inputch}>
+                  <Form.Control as="select" name="e" onChange={this.inputch}>
                     <option>Choose</option>
-                    <option>Asian</option>
-                    <option>Hispanic</option>
-                    <option>Caucasian</option>
-                    <option>Indian</option>
-                    <option>African-American</option>
-                    <option>Middle-Eastern</option>
+                    <option value="asian">Asian</option>
+                    <option value="hispanic">Hispanic</option>
+                    <option value="caucasian">Caucasian</option>
+                    <option value="indian">Indian</option>
+                    <option value="african_american">African-American</option>
                   </Form.Control>
                   <span className="help-block" style={{ color: "red" }}>
-                    {val.ethnicity.message}
+                    {val.e.message}
                   </span>
               </Form.Group>
 
-              <Form.Group as={Row} align="center" controlId="gender">
+              <Form.Group as={Row} align="center" controlId="g">
                 <Form.Label>Gender</Form.Label>
-                  <Form.Control as="select" name="gender" onChange={this.inputch}>
+                  <Form.Control as="select" name="g" onChange={this.inputch}>
                     <option>Choose</option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="man">Male</option>
+                    <option value="woman">Female</option>
                   </Form.Control>
                   <span className="help-block" style={{ color: "red" }}>
-                    {val.gender.message}
+                    {val.g.message}
                   </span>
               </Form.Group>
 
