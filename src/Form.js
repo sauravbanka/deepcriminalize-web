@@ -8,6 +8,7 @@ import {
 } from "react-bootstrap";
 import './Form.css';
 import FormValidator from "./FormValidator.js";
+import SpeechRecognition from "./SpeechRecog.js";
 
 export class InputForm extends React.Component {
   constructor(props) {
@@ -162,9 +163,10 @@ export class InputForm extends React.Component {
               </Form.Group>
 
               <Form.Group as={Row} align="center" controlId="witness">
-                <Form.Label>Describe Witness</Form.Label>
-                  {/* INSERT SPEECH TO TEXT SNIPPET HERE */}
+                <Form.Label>Describe Witness
+                </Form.Label>
               </Form.Group>
+              <Row> <SpeechRecognition/></Row>
 
               <Form.Group as={Row}>
                 <Col md={12} lg={10} xl={10} align="center">

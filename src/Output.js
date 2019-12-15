@@ -14,6 +14,12 @@ class Output extends React.Component {
       return false;
     }
   }
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "/get-the-cube-edge/index.php", true);
+  xhttp.setRequestHeader("content-type", "application/json");
+  xhttp.send(json);
+  
   */
 
   render() {

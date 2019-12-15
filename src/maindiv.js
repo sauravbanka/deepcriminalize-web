@@ -30,17 +30,18 @@ export class MainDiv extends React.Component {
     console.log(this.state, display)
   };
 
-
   displayOutput() {
     console.log(this.state)
     if (this.state.display === true) {
+      var x = document.getElementById("desc").textContent;
+      console.log(x)
       let final_json = {
         uid: this.state.witness_name+this.state.case_number,
         e: this.state.e,
         g: this.state.g,
-        md: this.state.md
+        md: x
       }
-      return (<Output json={final_json}/>);
+      return (<Output json={final_json} />);
     }
       else {
         return (
