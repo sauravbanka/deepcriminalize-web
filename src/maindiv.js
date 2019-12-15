@@ -1,7 +1,7 @@
 import React from "react";
 import {InputForm} from "./Form.js";
 import Output from "./Output.js";
-import $ from "jquery";
+
 export class MainDiv extends React.Component {
   constructor(props) {
     super(props);
@@ -36,42 +36,62 @@ export class MainDiv extends React.Component {
       var x = document.getElementById("desc").textContent;
 
       let final_json = {
-        uid: 1300,
+        uid: this.state.case_number,
         e: this.state.e,
         g: this.state.g,
-        md: "The woman was tall, hispanic and had a hooked nose"
+        md: x
       }
       console.log(final_json)
 
-      var data = JSON.stringify({
-  "uid": 9,
-  "g": "woman",
-  "e": "caucasian",
-  "md": "The caucasian male has long blonde hair,bald man, big lips, a big mustache. He is very attractive but slightly intimidating."
-});
+      var data = JSON.stringify(final_json);
 
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = false;
-
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === 4) {
-        console.log(this.responseText);
-      }
-    });
-
-    xhr.open("POST", "http://deepcriminalize.ngrok.io");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    // xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
-    xhr.setRequestHeader("Accept", "*/*");
-    xhr.setRequestHeader("Cache-Control", "no-cache");
-    xhr.setRequestHeader("Postman-Token", "17cc52ac-ab49-419f-96cd-e2473620cb1d,f4f9933c-c3cb-44cc-b4d1-e7b22cc8b47d");
-    // xhr.setRequestHeader("Host", "deepcriminalize.ngrok.io");
-    // xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
-    // xhr.setRequestHeader("Content-Length", "185");
-    // xhr.setRequestHeader("Connection", "keep-alive");
-    xhr.setRequestHeader("cache-control", "no-cache");
-    xhr.setRequestHeader("dataType",'jsonp');
-    xhr.send(data);
+      // var xhr = new XMLHttpRequest();
+      // xhr.withCredentials = false;
+      //
+      // xhr.addEventListener("readystatechange", function () {
+      //   if (this.readyState === 4) {
+      //     console.log(this.responseText);
+      //     setTimeout(function () {
+      //       var xh = new XMLHttpRequest();
+      //       xh.withCredentials = false;
+      //       console.log(data);
+      //       xh.addEventListener("readystatechange", function () {
+      //         if (this.readyState === 4) {
+      //           console.log(this.responseText);
+      //         }
+      //       });
+      //
+      //       xh.open("POST", "http://deepcriminalize.ngrok.io");
+      //       xh.setRequestHeader("Content-Type", "application/json");
+      //       // xh.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
+      //       xh.setRequestHeader("Accept", "*/*");
+      //       xh.setRequestHeader("Cache-Control", "no-cache");
+      //       xh.setRequestHeader("Postman-Token", "1e67983e-fd86-43d5-984a-db27854e4368,6cb1f310-58d4-4e45-84fd-d3503b5571fc");
+      //       // xh.setRequestHeader("Host", "deepcriminalize.ngrok.io");
+      //       // xh.setRequestHeader("Accept-Encoding", "gzip, deflate");
+      //       // xh.setRequestHeader("Content-Length", "187");
+      //       // xh.setRequestHeader("Connection", "keep-alive");
+      //       xh.setRequestHeader("cache-control", "no-cache");
+      //       xh.setRequestHeader("dataType",'jsonp');
+      //       xh.send(data);
+      //     }, 5000);
+      //     //secondPost(data);
+      //   }
+      // });
+      //
+      // xhr.open("PUT", "http://deepcriminalize.ngrok.io");
+      // xhr.setRequestHeader("Content-Type", "application/json");
+      // // xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.20.1");
+      // xhr.setRequestHeader("Accept", "*/*");
+      // xhr.setRequestHeader("Cache-Control", "no-cache");
+      // xhr.setRequestHeader("Postman-Token", "17cc52ac-ab49-419f-96cd-e2473620cb1d,f4f9933c-c3cb-44cc-b4d1-e7b22cc8b47d");
+      // // xhr.setRequestHeader("Host", "deepcriminalize.ngrok.io");
+      // // xhr.setRequestHeader("Accept-Encoding", "gzip, deflate");
+      // // xhr.setRequestHeader("Content-Length", "185");
+      // // xhr.setRequestHeader("Connection", "keep-alive");
+      // xhr.setRequestHeader("cache-control", "no-cache");
+      // xhr.setRequestHeader("dataType",'jsonp');
+      // xhr.send(data);
 
 
 
@@ -85,7 +105,7 @@ export class MainDiv extends React.Component {
       // // mode:'no-cors'
       // })
 
-      return (<Output json={final_json} />);
+      return (<Output json={data}/>);
     }
       else {
         return (
@@ -102,3 +122,7 @@ export class MainDiv extends React.Component {
     )
   };
 }
+
+// function secondPost(data){
+
+// }
